@@ -39,5 +39,10 @@ public class Card {
         }
         return deck;
         }
+    public void deckWriter(Card[] deck){
+        for(int a = 0;a<deck.length;a++){
+            System.out.println(deck[a].suit+" "+deck[a].rank);
+        }
+    }
     }
 
