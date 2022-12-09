@@ -10,6 +10,8 @@ public class Main {
         card.deckWriter();
         card.dealToPlayer();
         card.deckWriter();
+        card.deckPlayerWriter();
+
 
 
 

@@ -45,6 +45,12 @@ public class Card {
         }
         System.out.println();
     }
+    public void deckPlayerWriter(){
+        for(int a = 0;a<deckPlayerCounter;a++){
+            System.out.print(deckPlayer[a].suit+"-"+deckPlayer[a].rank+" ");
+        }
+        System.out.println();
+    }
     public void deckCutter(){
         Random random = new Random();
         int randomInt = random.nextInt(0,deck.length);
