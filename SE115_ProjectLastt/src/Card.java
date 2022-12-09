@@ -6,9 +6,16 @@ public class Card {
     public String[] suits = {"Clubs","Diamonds","Hearts","Spades"};
     public String[] ranks ={"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
     public Card[] deck = new Card[52];
+    public Card[] deckPlayer=new Card[52];
+    public Card[] deckBoard=new Card[52];
+    public Card[] deckComputer=new Card[52];
+    public int playerCardCounter=0;
+    public int computerCardCounter=0;
+    public int boardCardCounter=0;
+    public int deckCardCounter=0;
 
 
-    public Card[] deckMaker(){
+    public void deckMaker(){
         int count=0;
         for(int a = 0;a<suits.length;a++){
             for(int b = 0;b<ranks.length;b++){
@@ -19,12 +26,10 @@ public class Card {
                 count++;
             }
         }
-        return deck;
+
     }
-    public Card[] deckShuffle(){
+    public void deckShuffle(){
         Random random = new Random();
-        Card a = new Card();
-        Card[] deck = a.deckMaker();
         Card empty= new Card();
         for(int i = 0;i<deck.length;i++){
             int randomIndex = random.nextInt(0,52);
@@ -32,14 +37,15 @@ public class Card {
             deck[randomIndex]=deck[i];
             deck[i]=empty;
         }
-        return deck;
+
         }
-    public void deckWriter(Card[] deck){
+    public void deckWriter(){
         for(int a = 0;a<deck.length;a++){
             System.out.print(deck[a].suit+"-"+deck[a].rank+" ");
         }
+        System.out.println();
     }
-    public Card[] deckCutter(Card[] deck){
+    public void deckCutter(){
         Random random = new Random();
         int randomInt = random.nextInt(0,deck.length);
         Card[] deckTop = new Card[52-randomInt];
@@ -65,7 +71,29 @@ public class Card {
             deckCutted[c]=deckBottom[a];
             a++;
         }
-        return deckCutted;
+        for (int d=0;d<deckCutted.length;d++){
+            deck[d]=deckCutted[d];
+        }
+
+    }
+    public void moveToPlayerFromBoard(Card[] deckPlayer){
+
+        for (int a=0;a<deckBoard.length;a++) {
+            deckPlayer[playerCardCounter] = deckBoard[boardCardCounter];
+            playerCardCounter += +1;
+            deckBoard[boardCardCounter]=null;
+            boardCardCounter -= +1;
+        }
+
+    }
+
+    public void moveToBoardFromDeck(Card[] deck){
+        for (int a=0;a<deckBoard.length;a++) {
+            deckBoard[boardCardCounter] = deck[deckCardCounter];
+            boardCardCounter += +1;
+            deck[deckCardCounter]=null;
+            deckCardCounter -= +1;
+        }
     }
     }
 
