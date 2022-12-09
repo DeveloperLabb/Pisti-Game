@@ -6,6 +6,7 @@ public class Card {
     public String[] suits = {"Clubs","Diamonds","Hearts","Spades"};
     public String[] ranks ={"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
     public Card[] deck = new Card[52];
+    /*
     public Card[] deckPlayer=new Card[52];
     public Card[] deckBoard=new Card[52];
     public Card[] deckComputer=new Card[52];
@@ -13,7 +14,7 @@ public class Card {
     public int computerCardCounter=0;
     public int boardCardCounter=0;
     public int deckCardCounter=0;
-
+*/
 
     public void deckMaker(){
         int count=0;
@@ -76,6 +77,7 @@ public class Card {
         }
 
     }
+    /*
     public void moveToPlayerFromBoard(Card[] deckPlayer){
 
         for (int a=0;a<deckBoard.length;a++) {
@@ -95,5 +97,7 @@ public class Card {
             deckCardCounter -= +1;
         }
     }
+
+     */
     }
 
