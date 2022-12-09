@@ -7,12 +7,7 @@ public class Card {
     public String[] ranks ={"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
     public Card[] deck = new Card[52];
 
-   /* public Card(String rank, String suit) {
-        this.rank = rank;
-        this.suit = suit;
-    }
 
-    */
     public Card[] deckMaker(){
         int count=0;
         for(int a = 0;a<suits.length;a++){
@@ -41,8 +36,36 @@ public class Card {
         }
     public void deckWriter(Card[] deck){
         for(int a = 0;a<deck.length;a++){
-            System.out.println(deck[a].suit+" "+deck[a].rank);
+            System.out.print(deck[a].suit+"-"+deck[a].rank+" ");
         }
+    }
+    public Card[] deckCutter(Card[] deck){
+        Random random = new Random();
+        int randomInt = random.nextInt(0,deck.length);
+        Card[] deckTop = new Card[52-randomInt];
+        Card[] deckBottom = new Card[randomInt];
+        Card[] deckCutted = new Card[deck.length];
+        int a = 0 ;
+        for(int randomcopyy = randomInt;randomcopyy<deck.length;randomcopyy++){
+            deckTop[a]=deck[randomcopyy];// Kesildikten sonra üstte yer alması gereken kartlar.
+            a++;
+        }
+        a= 0;
+        for(int b = 0;b<randomInt;b++) {
+            deckBottom[a] = deck[b];//Kesildikten sonra altta yer alması gereken kartlar.
+            a++;
+        }
+        a=0;
+        for(int c = 0; c< deckTop.length;c++){
+            deckCutted[a]=deckTop[c];
+            a++;
+        }
+        a=0;
+        for(int c = deckTop.length; c< deck.length;c++){
+            deckCutted[c]=deckBottom[a];
+            a++;
+        }
+        return deckCutted;
     }
     }
 
