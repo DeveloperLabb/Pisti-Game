@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Card {
     public String rank;
     public String suit;
@@ -24,4 +26,18 @@ public class Card {
         }
         return deck;
     }
-}
+    public Card[] deckShuffle(){
+        Random random = new Random();
+        Card a = new Card();
+        Card[] deck = a.deckMaker();
+        Card empty= new Card();
+        for(int i = 0;i<deck.length;i++){
+            int randomIndex = random.nextInt(0,52);
+            empty = deck[randomIndex];
+            deck[randomIndex]=deck[i];
+            deck[i]=empty;
+        }
+        return deck;
+        }
+    }
+
