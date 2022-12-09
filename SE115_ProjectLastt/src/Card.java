@@ -51,6 +51,18 @@ public class Card {
         }
         System.out.println();
     }
+    public void deckComputerWriter(){
+        for(int a = 0;a<deckComputerCounter;a++){
+            System.out.print(deckComputer[a].suit+"-"+deckComputer[a].rank+" ");
+        }
+        System.out.println();
+    }
+    public void deckBoardWriter(){
+        for(int a = 0;a<deckBoardCounter;a++){
+            System.out.print(deckBoard[a].suit+"-"+deckBoard[a].rank+" ");
+        }
+        System.out.println();
+    }
     public void deckCutter(){
         Random random = new Random();
         int randomInt = random.nextInt(0,deck.length);
@@ -86,6 +98,22 @@ public class Card {
         for(int a =0 ;a< 4 ;a++){
             deckPlayer[deckPlayerCounter]=deck[deckCounter-1];
             deckPlayerCounter+=1;
+            deck[deckCounter-1]=null;
+            deckCounter-=1;
+        }
+    }
+    public void dealToComputer(){
+        for(int a =0 ;a< 4 ;a++){
+            deckComputer[deckComputerCounter]=deck[deckCounter-1];
+            deckComputerCounter+=1;
+            deck[deckCounter-1]=null;
+            deckCounter-=1;
+        }
+    }
+    public void dealToBoard(){
+        for(int a =0 ;a< 4 ;a++){
+            deckBoard[deckBoardCounter]=deck[deckCounter-1];
+            deckBoardCounter+=1;
             deck[deckCounter-1]=null;
             deckCounter-=1;
         }

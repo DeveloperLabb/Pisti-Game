@@ -11,6 +11,15 @@ public class Main {
         card.dealToPlayer();
         card.deckWriter();
         card.deckPlayerWriter();
+        card.dealToComputer();
+        card.deckWriter();
+        card.dealToPlayer();
+        card.deckWriter();
+        card.dealToBoard();
+        card.deckWriter();
+        card.deckComputerWriter();
+        card.deckPlayerWriter();
+        card.deckBoardWriter();
 
 
 
