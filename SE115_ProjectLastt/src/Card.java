@@ -6,15 +6,14 @@ public class Card {
     public String[] suits = {"Clubs","Diamonds","Hearts","Spades"};
     public String[] ranks ={"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
     public Card[] deck = new Card[52];
-    /*
-    public Card[] deckPlayer=new Card[52];
-    public Card[] deckBoard=new Card[52];
+    public int deckCounter=52; //deck.length
+    public Card[] deckPlayer= new Card[52];
+    public int deckPlayerCounter=0; //deckPlayer.length
     public Card[] deckComputer=new Card[52];
-    public int playerCardCounter=0;
-    public int computerCardCounter=0;
-    public int boardCardCounter=0;
-    public int deckCardCounter=0;
-*/
+    public int deckComputerCounter=0;  //deckComputer.length
+    public Card[] deckBoard=new Card[52];
+    public int deckBoardCounter=0;     //deckBoard.length
+
 
     public void deckMaker(){
         int count=0;
@@ -41,7 +40,7 @@ public class Card {
 
         }
     public void deckWriter(){
-        for(int a = 0;a<deck.length;a++){
+        for(int a = 0;a<deckCounter;a++){
             System.out.print(deck[a].suit+"-"+deck[a].rank+" ");
         }
         System.out.println();
@@ -77,27 +76,13 @@ public class Card {
         }
 
     }
-    /*
-    public void moveToPlayerFromBoard(Card[] deckPlayer){
-
-        for (int a=0;a<deckBoard.length;a++) {
-            deckPlayer[playerCardCounter] = deckBoard[boardCardCounter];
-            playerCardCounter += +1;
-            deckBoard[boardCardCounter]=null;
-            boardCardCounter -= +1;
-        }
-
-    }
-
-    public void moveToBoardFromDeck(Card[] deck){
-        for (int a=0;a<deckBoard.length;a++) {
-            deckBoard[boardCardCounter] = deck[deckCardCounter];
-            boardCardCounter += +1;
-            deck[deckCardCounter]=null;
-            deckCardCounter -= +1;
+    public void dealToPlayer(){
+        for(int a =0 ;a< 4 ;a++){
+            deckPlayer[deckPlayerCounter]=deck[deckCounter-1];
+            deckPlayerCounter+=1;
+            deck[deckCounter-1]=null;
+            deckCounter-=1;
         }
     }
-
-     */
     }
 

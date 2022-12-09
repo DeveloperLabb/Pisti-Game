@@ -8,6 +8,8 @@ public class Main {
         card.deckWriter();
         card.deckCutter();
         card.deckWriter();
+        card.dealToPlayer();
+        card.deckWriter();
 
 
 
