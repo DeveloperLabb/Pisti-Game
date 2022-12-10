@@ -16,9 +16,8 @@ public class Main {
         game.writer(player);
         game.writer(computer);
         game.writer(board);
-        game.moveTo(board,player);
-        game.writer(board);
-        game.moveTo(board,computer);
+        game.turnPlayer(player,board);
+
 
 
 

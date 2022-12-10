@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class Card {
     private String rank;
@@ -186,6 +187,16 @@ public class Card {
             System.out.println("Ortada kart yok");
         }
 
+    }
+    public void turnPlayer(Player player,Board board){
+        Scanner scanner = new Scanner(System.in);
+        writer(player);
+        System.out.println("Type number which card do you want to play from left to right 0-1-2-3");
+        int ind = scanner.nextInt();
+        int indBoard=board.onBoardCounter;
+        board.onBoard[indBoard]=player.hand[ind];
+        board.onBoardCounter +=1;
+        writer(board);
     }
 
     /* public void dealToComputer(){
