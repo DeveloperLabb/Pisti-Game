@@ -5,8 +5,12 @@ public class Card {
     private String suit;
     private String[] suits = {"Clubs","Diamonds","Hearts","Spades"};
     private String[] ranks ={"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
-    private Card[] deck = new Card[52];
-    private int deckCounter=52; //deck.length
+    private Card[] deck;
+    private int deckCounter; //deck.length
+    public Card(){
+        this.deckCounter=52;
+        this.deck=new Card[52];
+    }
    /* private Card[] deckPlayer= new Card[4];
     private int deckPlayerCounter=0; //deckPlayer.length
     private Card[] deckComputer=new Card[4];
