@@ -197,6 +197,18 @@ public class Card {
         int indBoard=board.onBoardCounter;
         board.onBoard[indBoard]=player.hand[ind];
         board.onBoardCounter +=1;
+        player.hand[ind]=null;
+    }
+    public void turnComputer(Computer computer,Board board){
+        Scanner scanner = new Scanner(System.in);
+        writer(board);
+        writer(computer);
+        System.out.println("Type number which card do you want to play from left to right 0-1-2-3");
+        int ind = scanner.nextInt();
+        int indBoard=board.onBoardCounter;
+        board.onBoard[indBoard]=computer.hand[ind];
+        board.onBoardCounter +=1;
+        computer.hand[ind]=null;
     }
 
     /* public void dealToComputer(){
