@@ -1,16 +1,22 @@
 public class Main {
 
     public static void main(String[] args) {
-        Card game1 = new Card();
-        game1.deckMaker();
-        game1.deckShuffle();
-        game1.deckCutter();
-        //
-        game1.dealToBoard();
-        game1.dealToPlayer();
-        game1.dealToComputer();
-        //
-        game1.gameInfo();
+        Card game = new Card();
+        Player player = new Player();
+        Computer computer= new Computer();
+        Board board = new Board();
+        game.deckMaker();
+        game.deckShuffle();
+        game.deckCutter();
+        game.dealTo(board);
+        game.dealTo(player);
+        game.dealTo(computer);
+        game.writer(game);
+        game.writer(player);
+        game.writer(computer);
+        game.writer(board);
+
+
     }
 
 

@@ -1,9 +1,9 @@
 public class Player {
-    public Card[] hand= new Card[4];
-    public int handCardCounter = 0;
-    public Card[] won = new Card[52];
-    public int wonCardCounter = 0;
-    public Card[] pisti= new Card[52];
-    public int pistiCardCounter = 0;
+    public static Card[] hand= new Card[4];
+    public static int handCounter = 0;
+    public static Card[] won = new Card[52];
+    public static int wonCounter = 0;
+    public static Card[] pisti= new Card[52];
+    public static int pistiCounter = 0;
 
 }
