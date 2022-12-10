@@ -2,12 +2,37 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Card {
-    public String rank;
+    private String rank;
     private String suit;
     private String[] suits = {"Clubs","Diamonds","Hearts","Spades"};
     private String[] ranks ={"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
     private Card[] deck;
     private int deckCounter; //deck.length
+
+    public String getRank() {
+        return rank;
+    }
+
+    public String getSuit() {
+        return suit;
+    }
+
+    public String[] getSuits() {
+        return suits;
+    }
+
+    public int getDeckCounter() {
+        return deckCounter;
+    }
+
+    public String[] getRanks() {
+        return ranks;
+    }
+
+    public Card[] getDeck() {
+        return deck;
+    }
+
     public Card(){
         this.deckCounter=52;
         this.deck=new Card[52];
@@ -116,14 +141,6 @@ public class Card {
         System.out.println();
         System.out.println(deck.deckCounter);
     }
-    public void writer(Board board){
-        System.out.print("Cards on the board : ");
-        for(int a = 0;a<board.onBoardCounter;a++){
-            System.out.print(board.onBoard[a].suit+"-"+board.onBoard[a].rank+" ");
-        }
-        System.out.println();
-        System.out.println(board.onBoardCounter);
-    }
     public void writer(Player player){
         System.out.print("Cards on the player : ");
         for(int a = 0;a<player.handCounter;a++){
@@ -141,6 +158,7 @@ public class Card {
         System.out.println(computer.handCounter);
     }
     public void dealTo(Player player){
+        player.hand=new Card[4];
         for(int a =0 ;a< 4 ;a++){
             player.hand[player.handCounter]=deck[deckCounter-1];
             player.handCounter+=1;
@@ -157,6 +175,7 @@ public class Card {
         }
     }
     public void dealTo(Computer computer){
+        computer.hand=new Card[4];
         for(int a =0 ;a< 4 ;a++){
             computer.hand[computer.handCounter]=deck[deckCounter-1];
             computer.handCounter+=1;
@@ -190,7 +209,7 @@ public class Card {
     }
     public void turnPlayer(Player player,Board board){
         Scanner scanner = new Scanner(System.in);
-        writer(board);
+        board.writer();
         writer(player);
         System.out.println("Type number which card do you want to play from left to right 0-1-2-3");
         int ind = scanner.nextInt();
@@ -198,10 +217,20 @@ public class Card {
         board.onBoard[indBoard]=player.hand[ind];
         board.onBoardCounter +=1;
         player.hand[ind]=null;
+        player.handCounter-=1;
+        Card[] temp = new Card[player.handCounter];
+        int count=0;
+        for(int a =0;a<player.handCounter+1;a++){
+            if(player.hand[a]!=null){
+                temp[count]=player.hand[a];
+                count++;
+            }
+        }
+        player.hand=temp;
     }
     public void turnComputer(Computer computer,Board board){
         Scanner scanner = new Scanner(System.in);
-        writer(board);
+        board.writer();
         writer(computer);
         System.out.println("Type number which card do you want to play from left to right 0-1-2-3");
         int ind = scanner.nextInt();
@@ -209,7 +238,18 @@ public class Card {
         board.onBoard[indBoard]=computer.hand[ind];
         board.onBoardCounter +=1;
         computer.hand[ind]=null;
+        computer.handCounter-=1;
+        Card[] temp = new Card[computer.handCounter];
+        int count=0;
+        for(int a =0;a<computer.handCounter+1;a++){
+            if(computer.hand[a]!=null){
+                temp[count]=computer.hand[a];
+                count++;
+            }
+        }
+        computer.hand=temp;
     }
+
 
     /* public void dealToComputer(){
         for(int a =0 ;a< 4 ;a++){
