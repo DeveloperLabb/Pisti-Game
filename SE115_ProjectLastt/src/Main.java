@@ -11,13 +11,6 @@ public class Main {
         game1.dealToComputer();
         //
         game1.gameInfo();
-
-
-
-
-
-
-
     }
 
 

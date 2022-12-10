@@ -43,33 +43,6 @@ public class Card {
         }
 
         }
-    public void deckWriter(){
-        for(int a = 0;a<deckCounter;a++){
-            System.out.print(deck[a].suit+"-"+deck[a].rank+" ");
-        }
-        System.out.println();
-    }
-    public void deckPlayerWriter(){
-        System.out.print("Cards on your hand : ");
-        for(int a = 0;a<deckPlayerCounter;a++){
-            System.out.print(deckPlayer[a].suit+"-"+deckPlayer[a].rank+" ");
-        }
-        System.out.println();
-    }
-    public void deckComputerWriter(){
-        System.out.print("Cards on the computer : ");
-        for(int a = 0;a<deckComputerCounter;a++){
-            System.out.print(deckComputer[a].suit+"-"+deckComputer[a].rank+" ");
-        }
-        System.out.println();
-    }
-    public void deckBoardWriter(){
-        System.out.print("Cards on the board : ");
-        for(int a = 0;a<deckBoardCounter;a++){
-            System.out.print(deckBoard[a].suit+"-"+deckBoard[a].rank+" ");
-        }
-        System.out.println();
-    }
     public void deckCutter(){
         Random random = new Random();
         int randomInt = random.nextInt(0,deck.length);
@@ -102,6 +75,33 @@ public class Card {
         System.out.println("Deck is cutted and ready to be played...");
 
     }
+    public void deckWriter(){
+        for(int a = 0;a<deckCounter;a++){
+            System.out.print(deck[a].suit+"-"+deck[a].rank+" ");
+        }
+        System.out.println();
+    }
+    public void deckPlayerWriter(){
+        System.out.print("Cards on your hand : ");
+        for(int a = 0;a<deckPlayerCounter;a++){
+            System.out.print(deckPlayer[a].suit+"-"+deckPlayer[a].rank+" ");
+        }
+        System.out.println();
+    }
+    public void deckComputerWriter(){
+        System.out.print("Cards on the computer : ");
+        for(int a = 0;a<deckComputerCounter;a++){
+            System.out.print(deckComputer[a].suit+"-"+deckComputer[a].rank+" ");
+        }
+        System.out.println();
+    }
+    public void deckBoardWriter(){
+        System.out.print("Cards on the board : ");
+        for(int a = 0;a<deckBoardCounter;a++){
+            System.out.print(deckBoard[a].suit+"-"+deckBoard[a].rank+" ");
+        }
+        System.out.println();
+    }
     public void dealToPlayer(){
         for(int a =0 ;a< 4 ;a++){
             deckPlayer[deckPlayerCounter]=deck[deckCounter-1];
@@ -131,21 +131,15 @@ public class Card {
             }
         }
     }
-    public void moveToComputer(){
-        if(deckBoardCounter>0){
-            for(int a = 0;a<deckBoardCounter;a++){
-                deckComputerWon[deckComputerWonCounter]=deckBoard[deckBoardCounter];
-                deckComputerWonCounter+=1;
-                deckBoard[deckBoardCounter]=null;
-                deckBoardCounter-=1;
-            }
-        }
-    }
     public void gameInfo(){
         deckWriter();
+        System.out.println(deckCounter);
         deckBoardWriter();
+        System.out.println(deckBoardCounter);
         deckPlayerWriter();
+        System.out.println(deckPlayerCounter);
         deckComputerWriter();
+        System.out.println(deckComputerCounter);
     }
 }
 
