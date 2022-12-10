@@ -124,7 +124,7 @@ public class Card {
         System.out.println(board.onBoardCounter);
     }
     public void writer(Player player){
-        System.out.print("Cards on the writer : ");
+        System.out.print("Cards on the player : ");
         for(int a = 0;a<player.handCounter;a++){
             System.out.print(player.hand[a].suit+"-"+player.hand[a].rank+" ");
         }
@@ -162,6 +162,30 @@ public class Card {
             deck[deckCounter-1]=null;
             deckCounter-=1;
         }
+    }
+    public void moveTo(Board board,Player player){
+        int length = board.onBoardCounter;
+        for(int a =0 ;a<length;a++){
+            player.won[player.wonCounter]=board.onBoard[a];
+            player.wonCounter+=1;
+            board.onBoard[board.onBoardCounter-1]=null;
+            board.onBoardCounter-=1;
+        }
+    }
+    public void moveTo(Board board,Computer computer){
+        if(board.onBoardCounter>0){
+            int length = board.onBoardCounter;
+            for(int a =0 ;a<length;a++){
+                computer.won[computer.wonCounter]=board.onBoard[a];
+                computer.wonCounter+=1;
+                board.onBoard[board.onBoardCounter-1]=null;
+                board.onBoardCounter-=1;
+            }
+        }
+        else{
+            System.out.println("Ortada kart yok");
+        }
+
     }
 
     /* public void dealToComputer(){
