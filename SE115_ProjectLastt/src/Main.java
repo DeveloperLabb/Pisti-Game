@@ -12,11 +12,19 @@ public class Main {
         game.dealTo(board);
         game.dealTo(player);
         game.dealTo(computer);
-        game.writer(game);
-        game.writer(player);
-        game.writer(computer);
-        game.writer(board);
-        game.turnPlayer(player,board);
+
+        int whoplay=0;
+        while(whoplay%2==0){
+            game.turnPlayer(player,board);
+            if(board.onBoard[board.onBoardCounter-1].rank==board.onBoard[board.onBoardCounter-2].rank){
+                game.moveTo(board,player);
+                whoplay++;
+                break;
+            }
+            whoplay++;
+        }
+
+
 
 
 

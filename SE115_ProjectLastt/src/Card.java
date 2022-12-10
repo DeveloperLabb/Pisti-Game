@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Card {
-    private String rank;
+    public String rank;
     private String suit;
     private String[] suits = {"Clubs","Diamonds","Hearts","Spades"};
     private String[] ranks ={"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
@@ -190,13 +190,13 @@ public class Card {
     }
     public void turnPlayer(Player player,Board board){
         Scanner scanner = new Scanner(System.in);
+        writer(board);
         writer(player);
         System.out.println("Type number which card do you want to play from left to right 0-1-2-3");
         int ind = scanner.nextInt();
         int indBoard=board.onBoardCounter;
         board.onBoard[indBoard]=player.hand[ind];
         board.onBoardCounter +=1;
-        writer(board);
     }
 
     /* public void dealToComputer(){
