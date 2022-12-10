@@ -1,21 +1,24 @@
 import java.util.Random;
 
 public class Card {
-    public String rank;
-    public String suit;
-    public String[] suits = {"Clubs","Diamonds","Hearts","Spades"};
-    public String[] ranks ={"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
-    public Card[] deck = new Card[52];
-    public int deckCounter=52; //deck.length
-    public Card[] deckPlayer= new Card[52];
-    public int deckPlayerCounter=0; //deckPlayer.length
-    public Card[] deckComputer=new Card[52];
-    public int deckComputerCounter=0;  //deckComputer.length
-    public Card[] deckBoard=new Card[52];
-    public int deckBoardCounter=0;     //deckBoard.length
+    private String rank;
+    private String suit;
+    private String[] suits = {"Clubs","Diamonds","Hearts","Spades"};
+    private String[] ranks ={"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
+    private Card[] deck = new Card[52];
+    private int deckCounter=52; //deck.length
+    private Card[] deckPlayer= new Card[4];
+    private int deckPlayerCounter=0; //deckPlayer.length
+    private Card[] deckComputer=new Card[4];
+    private int deckComputerCounter=0;//deckComputer.length
+    private Card[] deckComputerWon=new Card[52];  //computer gained cards deck.
+    private int deckComputerWonCounter=0; //Computer gained card counter
+    private Card[] deckBoard=new Card[52];
+    private int deckBoardCounter=0;     //deckBoard.length
 
 
     public void deckMaker(){
+        System.out.println("Deck is preparing...");
         int count=0;
         for(int a = 0;a<suits.length;a++){
             for(int b = 0;b<ranks.length;b++){
@@ -29,6 +32,7 @@ public class Card {
 
     }
     public void deckShuffle(){
+        System.out.println("Deck is shuffling...");
         Random random = new Random();
         Card empty= new Card();
         for(int i = 0;i<deck.length;i++){
@@ -46,18 +50,21 @@ public class Card {
         System.out.println();
     }
     public void deckPlayerWriter(){
+        System.out.print("Cards on your hand : ");
         for(int a = 0;a<deckPlayerCounter;a++){
             System.out.print(deckPlayer[a].suit+"-"+deckPlayer[a].rank+" ");
         }
         System.out.println();
     }
     public void deckComputerWriter(){
+        System.out.print("Cards on the computer : ");
         for(int a = 0;a<deckComputerCounter;a++){
             System.out.print(deckComputer[a].suit+"-"+deckComputer[a].rank+" ");
         }
         System.out.println();
     }
     public void deckBoardWriter(){
+        System.out.print("Cards on the board : ");
         for(int a = 0;a<deckBoardCounter;a++){
             System.out.print(deckBoard[a].suit+"-"+deckBoard[a].rank+" ");
         }
@@ -92,6 +99,7 @@ public class Card {
         for (int d=0;d<deckCutted.length;d++){
             deck[d]=deckCutted[d];
         }
+        System.out.println("Deck is cutted and ready to be played...");
 
     }
     public void dealToPlayer(){
@@ -112,11 +120,32 @@ public class Card {
     }
     public void dealToBoard(){
         for(int a =0 ;a< 4 ;a++){
-            deckBoard[deckBoardCounter]=deck[deckCounter-1];
-            deckBoardCounter+=1;
-            deck[deckCounter-1]=null;
-            deckCounter-=1;
+            if (deckCounter>0){
+                deckBoard[deckBoardCounter]=deck[deckCounter-1];
+                deckBoardCounter+=1;
+                deck[deckCounter-1]=null;
+                deckCounter-=1;
+            }
+            else{
+                System.out.println("No card in deck.");
+            }
         }
     }
+    public void moveToComputer(){
+        if(deckBoardCounter>0){
+            for(int a = 0;a<deckBoardCounter;a++){
+                deckComputerWon[deckComputerWonCounter]=deckBoard[deckBoardCounter];
+                deckComputerWonCounter+=1;
+                deckBoard[deckBoardCounter]=null;
+                deckBoardCounter-=1;
+            }
+        }
     }
+    public void gameInfo(){
+        deckWriter();
+        deckBoardWriter();
+        deckPlayerWriter();
+        deckComputerWriter();
+    }
+}
 
