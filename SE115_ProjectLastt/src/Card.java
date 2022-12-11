@@ -2,8 +2,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Card {
-    private String rank;
-    private String suit;
+    public String rank;
+    public String suit;
     private String[] suits = {"Clubs","Diamonds","Hearts","Spades"};
     private String[] ranks ={"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
     private Card[] deck;
@@ -45,8 +45,6 @@ public class Card {
     private int deckComputerWonCounter=0; //Computer gained card counter
     private Card[] deckBoard=new Card[52];
     private int deckBoardCounter=0;//deckBoard.length*/
-
-
     public void deckMaker(){
         System.out.println("Deck is preparing...");
         int count=0;
@@ -141,7 +139,7 @@ public class Card {
         System.out.println();
         System.out.println(deck.deckCounter);
     }
-    public void writer(Player player){
+    /*public void writer(Player player){
         System.out.print("Cards on the player : ");
         for(int a = 0;a<player.handCounter;a++){
             System.out.print(player.hand[a].suit+"-"+player.hand[a].rank+" ");
@@ -156,9 +154,10 @@ public class Card {
         }
         System.out.println();
         System.out.println(computer.handCounter);
-    }
+    }*/
     public void dealTo(Player player){
         player.hand=new Card[4];
+        player.handCounter=0;
         for(int a =0 ;a< 4 ;a++){
             player.hand[player.handCounter]=deck[deckCounter-1];
             player.handCounter+=1;
@@ -176,6 +175,7 @@ public class Card {
     }
     public void dealTo(Computer computer){
         computer.hand=new Card[4];
+        computer.handCounter=0;
         for(int a =0 ;a< 4 ;a++){
             computer.hand[computer.handCounter]=deck[deckCounter-1];
             computer.handCounter+=1;
@@ -183,7 +183,7 @@ public class Card {
             deckCounter-=1;
         }
     }
-    public void moveTo(Board board,Player player){
+    /*public void moveTo(Board board,Player player){
         int length = board.onBoardCounter;
         for(int a =0 ;a<length;a++){
             player.won[player.wonCounter]=board.onBoard[a];
@@ -206,11 +206,11 @@ public class Card {
             System.out.println("Ortada kart yok");
         }
 
-    }
-    public void turnPlayer(Player player,Board board){
+    }*/
+    /*public void turnPlayer(Player player,Board board){
         Scanner scanner = new Scanner(System.in);
         board.writer();
-        writer(player);
+        player.writer();
         System.out.println("Type number which card do you want to play from left to right 0-1-2-3");
         int ind = scanner.nextInt();
         int indBoard=board.onBoardCounter;
@@ -231,7 +231,7 @@ public class Card {
     public void turnComputer(Computer computer,Board board){
         Scanner scanner = new Scanner(System.in);
         board.writer();
-        writer(computer);
+        computer.writer();
         System.out.println("Type number which card do you want to play from left to right 0-1-2-3");
         int ind = scanner.nextInt();
         int indBoard=board.onBoardCounter;
@@ -248,7 +248,7 @@ public class Card {
             }
         }
         computer.hand=temp;
-    }
+    }*/
 
 
     /* public void dealToComputer(){

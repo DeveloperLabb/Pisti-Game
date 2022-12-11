@@ -5,14 +5,30 @@ public class Board {
         this.onBoard= new Card[52];
         this.onBoardCounter=0;
     }
-
-
     public void writer(){
-        System.out.print("Cards on the board : ");
+        System.out.print(onBoardCounter+" cards on the board : ");
         for(int a = 0;a<onBoardCounter;a++){
             System.out.print(onBoard[a].getSuit()+"-"+onBoard[a].getRank()+" ");
         }
         System.out.println();
-        System.out.println(onBoardCounter);
+
+    }
+    public void moveTo(Player player){
+        int length = onBoardCounter;
+        for(int a =0 ;a<length;a++){
+            player.won[player.wonCounter]=onBoard[a];
+            player.wonCounter+=1;
+            onBoard[onBoardCounter-1]=null;
+            onBoardCounter-=1;
+        }
+    }
+    public void moveTo(Computer computer){
+        int length = onBoardCounter;
+        for(int a =0 ;a<length;a++){
+            computer.won[computer.wonCounter]=onBoard[a];
+            computer.wonCounter+=1;
+            onBoard[onBoardCounter-1]=null;
+            onBoardCounter-=1;
+        }
     }
 }
