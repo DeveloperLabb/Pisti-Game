@@ -27,8 +27,9 @@ public class Main {
                         System.out.println("Pişti yaptınız");
                         player.pistiCounter++;
                         whoplay++;
+                        break;
                     }
-                    if (board.onBoardCounter>2 && board.onBoard[board.onBoardCounter-1].getRank().equals("J")){
+                    if (board.onBoardCounter>1 && board.onBoard[board.onBoardCounter-1].getRank().equals("J")){
                         board.moveTo(player);
                     }
                     if (board.onBoardCounter>2 && board.onBoard[board.onBoardCounter-1].getRank() == board.onBoard[board.onBoardCounter - 2].getRank()) {
@@ -50,7 +51,7 @@ public class Main {
                         whoplay++;
                         break;
                     }
-                    if (board.onBoardCounter>2 && board.onBoard[board.onBoardCounter-1].getRank().equals("J")){
+                    if (board.onBoardCounter>1 && board.onBoard[board.onBoardCounter-1].getRank().equals("J")){
                         board.moveTo(computer);
                     }
                     if (board.onBoardCounter>2 && board.onBoard[board.onBoardCounter-1].getRank() == board.onBoard[board.onBoardCounter - 2].getRank()) {
