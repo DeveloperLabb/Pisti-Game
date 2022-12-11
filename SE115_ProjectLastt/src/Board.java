@@ -21,6 +21,7 @@ public class Board {
             onBoard[onBoardCounter-1]=null;
             onBoardCounter-=1;
         }
+        System.out.println("Player get the cards.");
     }
     public void moveTo(Computer computer){
         int length = onBoardCounter;
@@ -30,5 +31,6 @@ public class Board {
             onBoard[onBoardCounter-1]=null;
             onBoardCounter-=1;
         }
+        System.out.println("Computer get the cards.");
     }
 }

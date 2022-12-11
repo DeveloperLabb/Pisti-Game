@@ -47,5 +47,19 @@ public class Computer {
         }
         hand=temp;
     }
+    public int score(){
+        int score = 0;
+        for(int a =0 ;a<wonCounter;a++){
+            if(won[a].suit.equals("Clubs")&&won[a].suit.equals("2")){
+                score+=2;
+            }
+            if(won[a].suit.equals("Diamonds")&&won[a].suit.equals("10")){
+                score+=3;
+            }
+            score+=1;
+        }
+        score+=pistiCounter*10;
+        return score;
+    }
 
 }

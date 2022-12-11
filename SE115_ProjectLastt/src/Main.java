@@ -9,12 +9,11 @@ public class Main {
         game.deckShuffle();
         game.deckCutter();
         game.dealTo(board);
-
-
+        //
         int whoplay = 0;
         int round =1;
         int lastplayed=0; //0 player için 1 computer için.
-        while (whoplay<49){
+        while (whoplay<48){
                 if(whoplay==0||whoplay==8||whoplay==16||whoplay==24||whoplay==32||whoplay==40){
                     System.out.println("Round : "+round);
                     round++;
@@ -82,5 +81,15 @@ public class Main {
         if(lastplayed==1&&board.onBoardCounter>0){
             board.moveTo(computer);
         }
+        int computerScore= computer.score();
+        if(computer.wonCounter+computer.pistiCounter*2>player.wonCounter+player.pistiCounter*2){
+            computerScore+=3;
         }
+        int playerScore=player.score();
+        if(player.wonCounter+player.pistiCounter*2>computer.wonCounter+computer.pistiCounter*2){
+            playerScore+=3;
+        }
+        System.out.println("The game is finished.");
+        }
+
     }
