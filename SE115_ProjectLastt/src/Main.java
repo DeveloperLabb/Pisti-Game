@@ -12,8 +12,12 @@ public class Main {
 
 
         int whoplay = 0;
-        while(game.getDeckCounter()>0){
-                if(whoplay==0||whoplay==8||whoplay==16||whoplay==24||whoplay==32||whoplay==40||whoplay==48){
+        int round =1;
+        int lastplayed=0; //0 player için 1 computer için.
+        while (whoplay<49){
+                if(whoplay==0||whoplay==8||whoplay==16||whoplay==24||whoplay==32||whoplay==40){
+                    System.out.println("Round : "+round);
+                    round++;
                     game.dealTo(player);
                     game.dealTo(computer);
                 }
@@ -27,14 +31,19 @@ public class Main {
                         System.out.println("Pişti yaptınız");
                         player.pistiCounter++;
                         whoplay++;
+                        lastplayed=0;
                         break;
                     }
                     if (board.onBoardCounter>1 && board.onBoard[board.onBoardCounter-1].getRank().equals("J")){
                         board.moveTo(player);
+                        whoplay++;
+                        lastplayed=0;
+                        break;
                     }
                     if (board.onBoardCounter>2 && board.onBoard[board.onBoardCounter-1].getRank() == board.onBoard[board.onBoardCounter - 2].getRank()) {
                         board.moveTo(player);
                         whoplay++;
+                        lastplayed=0;
                         break;
                     }
                     whoplay++;
@@ -49,18 +58,29 @@ public class Main {
                         System.out.println("Pişti yaptınız.");
                         computer.pistiCounter++;
                         whoplay++;
+                        lastplayed=1;
                         break;
                     }
                     if (board.onBoardCounter>1 && board.onBoard[board.onBoardCounter-1].getRank().equals("J")){
                         board.moveTo(computer);
+                        whoplay++;
+                        lastplayed=1;
+                        break;
                     }
                     if (board.onBoardCounter>2 && board.onBoard[board.onBoardCounter-1].getRank() == board.onBoard[board.onBoardCounter - 2].getRank()) {
                         board.moveTo(computer);
                         whoplay++;
+                        lastplayed=1;
                         break;
                     }
                     whoplay++;
                 }
             }
+        if(lastplayed==0&&board.onBoardCounter>0){
+            board.moveTo(player);
+        }
+        if(lastplayed==1&&board.onBoardCounter>0){
+            board.moveTo(computer);
+        }
         }
     }
