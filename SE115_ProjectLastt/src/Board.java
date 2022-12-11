@@ -18,19 +18,19 @@ public class Board {
         for(int a =0 ;a<length;a++){
             player.won[player.wonCounter]=onBoard[a];
             player.wonCounter+=1;
-            onBoard[onBoardCounter-1]=null;
+            onBoard[a]=null;
             onBoardCounter-=1;
         }
-        System.out.println("Player get the cards.");
+        System.out.println("Player got the cards.");
     }
     public void moveTo(Computer computer){
         int length = onBoardCounter;
         for(int a =0 ;a<length;a++){
             computer.won[computer.wonCounter]=onBoard[a];
             computer.wonCounter+=1;
-            onBoard[onBoardCounter-1]=null;
+            onBoard[a]=null;
             onBoardCounter-=1;
         }
-        System.out.println("Computer get the cards.");
+        System.out.println("Computer got the cards.");
     }
 }

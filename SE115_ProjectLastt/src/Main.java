@@ -90,6 +90,9 @@ public class Main {
             playerScore+=3;
         }
         System.out.println("The game is finished.");
-        }
+        System.out.println("Player score is : " + playerScore);
+        System.out.println("Computer score is : " + computerScore);
+
+    }
 
     }
