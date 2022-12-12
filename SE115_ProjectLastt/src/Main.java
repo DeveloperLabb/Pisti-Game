@@ -54,7 +54,7 @@ public class Main {
                             board.onBoard[a] = null;
                             board.onBoardCounter--;
                         }
-                        System.out.println("Pişti yaptınız.");
+                        System.out.println("Bilgisayar pişti yaptı.");
                         computer.pistiCounter++;
                         whoplay++;
                         lastplayed=1;

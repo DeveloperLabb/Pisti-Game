@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Computer {
@@ -16,22 +17,35 @@ public class Computer {
         this.pistiCounter=0;
     }
     public void writer(){
-        System.out.print(handCounter+" cards on the computer : ");
+        /*System.out.print(handCounter+" cards on the computer : ");
         for(int a = 0;a<handCounter;a++){
             System.out.print(hand[a].suit+"-"+hand[a].rank+" ");
         }
-        System.out.println();
+        System.out.println();*/
+        System.out.println("Computer has played.");
 
     }
     public void turn(Board board){
         Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
         board.writer();
         writer();
-        System.out.print("Type number which card do you want to play from left to right ");
+        /*System.out.print("Type number which card do you want to play from left to right ");
         for (int a = 1;a<handCounter+1;a++){
             System.out.print(a+" ");
+        }*/
+        int ind = random.nextInt(0,handCounter);
+        if(board.onBoardCounter>0) {
+            for (int a = 0; a < handCounter; a++) {
+                if (hand[a].getRank() == "J") {
+                    ind = a;
+                }
+                if (board.onBoard[board.onBoardCounter - 1].getRank().equals(hand[a].getRank())) {
+                    ind = a;
+                }
+            }
         }
-        int ind = scanner.nextInt()-1;
+        //ind = scanner.nextInt()-1;
         int indBoard=board.onBoardCounter;
         board.onBoard[indBoard]=hand[ind];
         board.onBoardCounter +=1;
