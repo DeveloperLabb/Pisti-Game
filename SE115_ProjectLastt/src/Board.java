@@ -6,6 +6,7 @@ public class Board {
         this.onBoardCounter=0;
     }
     public void writer(){
+        System.out.println("---------------------------");
         System.out.print(onBoardCounter+" cards on the board : ");
         for(int a = 0;a<onBoardCounter;a++){
             System.out.print(onBoard[a].getSuit()+"-"+onBoard[a].getRank()+" ");

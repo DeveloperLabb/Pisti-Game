@@ -36,12 +36,24 @@ public class Computer {
         }*/
         int ind = random.nextInt(0,handCounter);
         if(board.onBoardCounter>0) {
-            for (int a = 0; a < handCounter; a++) {
-                if (hand[a].getRank() == "J") {
-                    ind = a;
+            if(board.onBoardCounter==1){
+                for (int a = 0; a < handCounter; a++) {
+                    if (board.onBoard[board.onBoardCounter - 1].getRank().equals(hand[a].getRank())) {
+                        ind = a;
+                    }
+                    if (hand[a].getRank() == "J") {
+                        ind = a;
+                    }
                 }
-                if (board.onBoard[board.onBoardCounter - 1].getRank().equals(hand[a].getRank())) {
-                    ind = a;
+            }
+            else {
+                for (int a = 0; a < handCounter; a++) {
+                    if (hand[a].getRank() == "J") {
+                        ind = a;
+                    }
+                    if (board.onBoard[board.onBoardCounter - 1].getRank().equals(hand[a].getRank())) {
+                        ind = a;
+                    }
                 }
             }
         }
