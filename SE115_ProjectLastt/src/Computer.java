@@ -66,9 +66,11 @@ public class Computer {
         for(int a =0 ;a<wonCounter;a++){
             if(won[a].suit.equals("Clubs")&&won[a].suit.equals("2")){
                 score+=2;
+                continue;
             }
             if(won[a].suit.equals("Diamonds")&&won[a].suit.equals("10")){
                 score+=3;
+                continue;
             }
             score+=1;
         }

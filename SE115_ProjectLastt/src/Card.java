@@ -72,33 +72,43 @@ public class Card {
 
         }
     public void deckCutter(){
-        Random random = new Random();
-        int randomInt = random.nextInt(0,deck.length);
-        Card[] deckTop = new Card[52-randomInt];
-        Card[] deckBottom = new Card[randomInt];
-        Card[] deckCutted = new Card[deck.length];
-        int a = 0 ;
-        for(int randomcopyy = randomInt;randomcopyy<deck.length;randomcopyy++){
-            deckTop[a]=deck[randomcopyy];// Kesildikten sonra üstte yer alması gereken kartlar.
-            a++;
-        }
-        a= 0;
-        for(int b = 0;b<randomInt;b++) {
-            deckBottom[a] = deck[b];//Kesildikten sonra altta yer alması gereken kartlar.
-            a++;
-        }
-        a=0;
-        for(int c = 0; c< deckTop.length;c++){
-            deckCutted[a]=deckTop[c];
-            a++;
-        }
-        a=0;
-        for(int c = deckTop.length; c< deck.length;c++){
-            deckCutted[c]=deckBottom[a];
-            a++;
-        }
-        for (int d=0;d<deckCutted.length;d++){
-            deck[d]=deckCutted[d];
+        Scanner scanner = new Scanner(System.in);
+        while(true){
+            System.out.println("Input an integer number where you want to cut the deck (0-52): ");//randomdan kullanıcı girişliye çevirdim.
+            int randomInt = scanner.nextInt();
+            if(randomInt>0&&randomInt<52){
+                Card[] deckTop = new Card[52-randomInt];
+                Card[] deckBottom = new Card[randomInt];
+                Card[] deckCutted = new Card[deck.length];
+                int a = 0 ;
+                for(int randomcopyy = randomInt;randomcopyy<deck.length;randomcopyy++){
+                    deckTop[a]=deck[randomcopyy];// Kesildikten sonra üstte yer alması gereken kartlar.
+                    a++;
+                }
+                a= 0;
+                for(int b = 0;b<randomInt;b++) {
+                    deckBottom[a] = deck[b];//Kesildikten sonra altta yer alması gereken kartlar.
+                    a++;
+                }
+                a=0;
+                for(int c = 0; c< deckTop.length;c++){
+                    deckCutted[a]=deckTop[c];
+                    a++;
+                }
+                a=0;
+                for(int c = deckTop.length; c< deck.length;c++){
+                    deckCutted[c]=deckBottom[a];
+                    a++;
+                }
+                for (int d=0;d<deckCutted.length;d++){
+                    deck[d]=deckCutted[d];
+                }
+                break;
+            }
+            else{
+                System.out.print("Misstyped ");
+                continue;
+            }
         }
         System.out.println("Deck is cutted and ready to be played...");
 
