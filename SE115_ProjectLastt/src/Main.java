@@ -27,7 +27,7 @@ public class Main {
                             board.onBoard[a] = null;
                             board.onBoardCounter--;
                         }
-                        System.out.println("Pişti yaptınız");
+                        System.out.println("You 've done Pişti");
                         player.pistiCounter++;
                         whoplay++;
                         lastplayed=0;
@@ -54,7 +54,7 @@ public class Main {
                             board.onBoard[a] = null;
                             board.onBoardCounter--;
                         }
-                        System.out.println("Bilgisayar pişti yaptı.");
+                        System.out.println("Computer has done Pişti");
                         computer.pistiCounter++;
                         whoplay++;
                         lastplayed=1;
