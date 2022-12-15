@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -74,8 +75,18 @@ public class Card {
     public void deckCutter(){
         Scanner scanner = new Scanner(System.in);
         while(true){
-            System.out.println("Input an integer number where you want to cut the deck (0-52): ");//randomdan kullanıcı girişliye çevirdim.
-            int randomInt = scanner.nextInt();
+            boolean done = false;
+            int randomInt = 25;
+            while(!done){
+                try{
+                    System.out.println("Input an integer number where you want to cut the deck (0-52): ");//randomdan kullanıcı girişliye çevirdim.
+                    randomInt = scanner.nextInt();
+                    done = true;
+                }catch(InputMismatchException e){
+                    scanner.nextLine();
+                    System.out.println("Please type an integer!");
+                }
+            }
             if(randomInt>0&&randomInt<52){
                 Card[] deckTop = new Card[52-randomInt];
                 Card[] deckBottom = new Card[randomInt];
