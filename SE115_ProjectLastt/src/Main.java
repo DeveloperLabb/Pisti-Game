@@ -100,7 +100,9 @@ public class Main {
         }
         System.out.println("The game is finished.");
         System.out.println("Player score is : " + playerScore);
+        player.endScore=playerScore;//classa attık
         System.out.println("Computer score is : " + computerScore);
+        computer.endScore=computerScore;//classa attık
 
         if(playerScore>computerScore){
             System.out.println("You win!");
@@ -112,4 +114,7 @@ public class Main {
             System.out.println("Draw!");
         }
     }
+    public static void fileProccess(){
+        //High score yazma ve okuma.
     }
+}

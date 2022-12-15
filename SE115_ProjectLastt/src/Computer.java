@@ -8,6 +8,7 @@ public class Computer {
     public static int wonCounter;
     public static Card[] pisti;
     public static int pistiCounter;
+    public static int endScore;
     public Computer(){
         this.hand=new Card[4];
         this.handCounter=0;
@@ -15,6 +16,7 @@ public class Computer {
         this.wonCounter = 0;
         this.pisti = new Card[52];
         this.pistiCounter=0;
+        this.endScore=0;
     }
     public void writer(){
         /*System.out.print(handCounter+" cards on the computer : ");
