@@ -52,17 +52,24 @@ public class Player {
     public int score(){
         int score = 0;
         for(int a =0 ;a<wonCounter;a++){
-            if(won[a].suit.equals("Clubs")&&won[a].suit.equals("2")){
+            if(won[a].suit.equals("Clubs")&&won[a].rank.equals("2")){
                 score+=2;
-                continue;
             }
-            if(won[a].suit.equals("Diamonds")&&won[a].suit.equals("10")){
+            if(won[a].suit.equals("Diamonds")&&won[a].rank.equals("10")){
                 score+=3;
-                continue;
             }
             score+=1;
         }
-        score+=pistiCounter*10;
+        for(int a =0 ;a<pistiCounter;a++){
+            if(pisti[a].suit.equals("Clubs")&&pisti[a].rank.equals("2")){
+                score+=2;
+            }
+            if(pisti[a].suit.equals("Diamonds")&&pisti[a].rank.equals("10")){
+                score+=3;
+            }
+            score+=1;
+        }
+        score+=(pistiCounter/2)*5;
         return score;
     }
 
