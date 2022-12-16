@@ -87,10 +87,10 @@ public class Main {
                 whoplay++;
             }
         }
-        if(lastplayed==0&&board.onBoardCounter>0){
+        if(lastplayed==0&&board.onBoardCounter>0){      //Masada en son kalan kartları playera atar eğer masadaki kartları son toplayan playersa.
             board.moveTo(player);
         }
-        if(lastplayed==1&&board.onBoardCounter>0){
+        if(lastplayed==1&&board.onBoardCounter>0){      //Masada en son kalan kartları computera atar eğer masadaki kartları son toplayan computersa
             board.moveTo(computer);
         }
         int computerScore = computer.score();
