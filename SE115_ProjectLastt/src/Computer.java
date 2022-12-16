@@ -38,7 +38,7 @@ public class Computer {
         int ind = random.nextInt(0, handCounter);
         if (board.onBoardCounter == 0) {
             for (int a = 0; a < handCounter; a++) {
-                if (!hand[handCounter - 1].getRank().equals("J")) {
+                if (!hand[a].getRank().equals("J")) {
                     ind = a;
                 }
             }

@@ -1,3 +1,4 @@
+import java.io.FileWriter;
 import java.nio.file.Paths;
 import java.util.Formatter;
 import java.util.Scanner;
@@ -136,16 +137,23 @@ public class Main {
 
     }
     public static void setFileScore(Player player){
+        Scanner sc = new Scanner(System.in);
+        String name;
+        int score;
+        System.out.print("Enter name: " );
+        name = sc.nextLine();
+        score = player.endScore;
         Formatter f = null;
+        FileWriter fw = null;
         try {
-            f = new Formatter("people2.txt");
-            f.format(String.valueOf(player.endScore));
+            fw = new FileWriter ("scores.txt" , true);
+            f = new Formatter (fw);
+            f. format( name, score+"\n");
+            fw.close();
         } catch (Exception e) {
-            System.err.println("Something went wrong.");
-        } finally {
-            if (f != null) {
-                f.close();
-            }
+            System.err.println("Something went wrong." );
         }
+
     }
+
 }
