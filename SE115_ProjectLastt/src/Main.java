@@ -1,6 +1,11 @@
+import java.nio.file.Paths;
+import java.util.Formatter;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         game();
+        getFileScore();
 
     }
     public static void game(){
@@ -114,7 +119,33 @@ public class Main {
             System.out.println("Draw!");
         }
     }
-    public static void fileProccess(){
-        //High score yazma ve okuma.
+    public static void getFileScore(){
+        Scanner reader=null;
+        try {
+            reader = new Scanner(Paths.get("scores.txt"));
+            while(reader.hasNextLine()){
+                System.out.println(reader.nextLine());
+            }
+        }catch(Exception e){
+            System.out.println("Error");
+        }finally{
+            if (reader != null) {
+                reader.close();
+            }
+        }
+
+    }
+    public static void setFileScore(Player player){
+        Formatter f = null;
+        try {
+            f = new Formatter("people2.txt");
+            f.format(String.valueOf(player.endScore));
+        } catch (Exception e) {
+            System.err.println("Something went wrong.");
+        } finally {
+            if (f != null) {
+                f.close();
+            }
+        }
     }
 }
