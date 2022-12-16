@@ -27,7 +27,7 @@ public class Computer {
         System.out.println("Computer has played.");
 
     }
-    public void turn(Board board){
+    public void turn(Board board) {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         board.writer();
@@ -35,22 +35,20 @@ public class Computer {
         for (int a = 1;a<handCounter+1;a++){
             System.out.print(a+" ");
         }*/
-        int ind = random.nextInt(0,handCounter);
-        /*if(board.onBoardCounter==0){
-            if(handCounter==1){
-                ind = 0;
+        int ind = random.nextInt(0, handCounter);
+        if (board.onBoardCounter == 0) {
+            for (int a = 0; a < handCounter; a++) {
+                if (!hand[handCounter - 1].getRank().equals("J")) {
+                    ind = a;
+                }
             }
-            else{
-                //eğer elde çok kart varsa valeden başka bir kartı atması gerekiyor..!!!!
-            }
-        }*/
-        if(board.onBoardCounter>0) {
-            if(board.onBoardCounter==1){
+        }
+        if (board.onBoardCounter > 0) {
+            if (board.onBoardCounter == 1) {
                 for (int a = 0; a < handCounter; a++) {
                     if (board.onBoard[board.onBoardCounter - 1].getRank().equals(hand[a].getRank())) {
                         ind = a;
-                    }
-                    else if (hand[a].getRank().equals("J")) {
+                    } else if (hand[a].getRank().equals("J")) {
                         ind = a;
                     }
                 }
@@ -59,29 +57,29 @@ public class Computer {
                 for (int a = 0; a < handCounter; a++) {
                     if (board.onBoard[board.onBoardCounter - 1].getRank().equals(hand[a].getRank())) {
                         ind = a;
-                    }
+                        }
                     else if (hand[a].getRank().equals("J")) {
                         ind = a;
                     }
                 }
             }
         }
-        //ind = scanner.nextInt()-1;
-        System.out.println("Computer has played "+hand[ind].getSuit()+"-"+hand[ind].getRank());
-        int indBoard=board.onBoardCounter;
-        board.onBoard[indBoard]=hand[ind];
-        board.onBoardCounter +=1;
-        hand[ind]=null;
-        handCounter-=1;
-        Card[] temp = new Card[handCounter];
-        int count=0;
-        for(int a =0;a<handCounter+1;a++){
-            if(hand[a]!=null){
-                temp[count]=hand[a];
-                count++;
+            //ind = scanner.nextInt()-1;
+            System.out.println("Computer has played " + hand[ind].getSuit() + "-" + hand[ind].getRank());
+            int indBoard = board.onBoardCounter;
+            board.onBoard[indBoard] = hand[ind];
+            board.onBoardCounter += 1;
+            hand[ind] = null;
+            handCounter -= 1;
+            Card[] temp = new Card[handCounter];
+            int count = 0;
+            for (int a = 0; a < handCounter + 1; a++) {
+                if (hand[a] != null) {
+                    temp[count] = hand[a];
+                    count++;
+                }
             }
-        }
-        hand=temp;
+            hand = temp;
     }
     public int score(){
         int score = 0;
