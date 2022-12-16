@@ -8,9 +8,13 @@ public class Board {
     public void writer(){
         System.out.println("---------------------------");
         System.out.print(onBoardCounter+" cards on the board : ");
-        for(int a = 0;a<onBoardCounter;a++){
-            System.out.print(onBoard[a].getSuit()+"-"+onBoard[a].getRank()+" ");
-        }
+        if(onBoardCounter!=0){
+            System.out.println(onBoard[onBoardCounter-1].getSuit()+"-"+onBoard[onBoardCounter-1].getRank());
+            for(int a = 0;a<onBoardCounter-1;a++){
+                System.out.print(onBoard[a].getSuit()+"-"+onBoard[a].getRank()+" ");
+            }
+        }//tek başına üst satırda yazan kart destenin üstündeki kart..
+
         System.out.println();
 
     }
