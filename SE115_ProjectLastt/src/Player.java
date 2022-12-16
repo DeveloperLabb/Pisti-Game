@@ -29,27 +29,36 @@ public class Player {
         Scanner scanner = new Scanner(System.in);
         board.writer();
         writer();
-        System.out.print("Type number which card do you want to play from left to right: ");
-        for (int a = 1;a<handCounter+1;a++){
-            System.out.print(a+" ");
-        }
-        int ind = scanner.nextInt()-1;
-        board.onBoard[board.onBoardCounter]=hand[ind];
-        board.onBoardCounter +=1;
-        hand[ind]=null;
-        handCounter-=1;
+        boolean done = false;
+        while(!done){
+            try{
+            System.out.print("Type number which card do you want to play from left to right: ");
+            for (int a = 1;a<handCounter+1;a++){
+                System.out.print(a+" ");
+            }
+            int ind = scanner.nextInt()-1;
+            board.onBoard[board.onBoardCounter]=hand[ind];
+            board.onBoardCounter +=1;
+            hand[ind]=null;
+            handCounter-=1;
         /*if(board.onBoard[board.onBoardCounter]==board.onBoard[board.onBoardCounter-1]){
             board.moveTo(player);
         }*/
-        Card[] temp = new Card[handCounter];
-        int count=0;
-        for(int a =0;a<handCounter+1;a++){
-            if(hand[a]!=null){
-                temp[count]=hand[a];
-                count++;
+            Card[] temp = new Card[handCounter];
+            int count=0;
+            for(int a =0;a<handCounter+1;a++){
+                if(hand[a]!=null){
+                    temp[count]=hand[a];
+                    count++;
+                }
+            }
+            hand=temp;
+            done = true;
+        }catch(Exception e){
+            scanner.nextLine();
+            System.out.println("Please type valid number.");
             }
         }
-        hand=temp;
     }
     public int score(){
         int score = 0;
