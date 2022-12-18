@@ -1,12 +1,6 @@
-import java.io.FileWriter;
-import java.nio.file.Paths;
-import java.util.Formatter;
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         game();
-        //getFileScore();
 
     }
     public static void game(){
@@ -26,8 +20,8 @@ public class Main {
             if(whoplay==0||whoplay==8||whoplay==16||whoplay==24||whoplay==32||whoplay==40){
                 System.out.println("Round : "+round);
                 round++;
-                game.dealTo(player);
-                game.dealTo(computer);
+                game.dealTo(player,computer);
+                //game.dealTo(computer);
             }
             while (whoplay % 2 == 0) {
                 player.turn(board);
@@ -118,40 +112,6 @@ public class Main {
         }
         if(playerScore==computerScore){
             System.out.println("Draw!");
-        }
-    }
-    public static void getFileScore(){
-        Scanner reader=null;
-        try {
-            reader = new Scanner(Paths.get("scores.txt"));
-            while(reader.hasNextLine()){
-                System.out.println(reader.nextLine());
-            }
-        }catch(Exception e){
-            System.out.println("Error");
-        }finally{
-            if (reader != null) {
-                reader.close();
-            }
-        }
-
-    }
-    public static void setFileScore(Player player){
-        Scanner sc = new Scanner(System.in);
-        String name;
-        int score;
-        System.out.print("Enter name: " );
-        name = sc.nextLine();
-        score = player.endScore;
-        Formatter f = null;
-        FileWriter fw = null;
-        try {
-            fw = new FileWriter ("scores.txt" , true);
-            f = new Formatter (fw);
-            f. format( name, score+"\n");
-            fw.close();
-        } catch (Exception e) {
-            System.err.println("Something went wrong." );
         }
 
     }

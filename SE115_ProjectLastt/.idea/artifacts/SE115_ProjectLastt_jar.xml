@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SE115_ProjectLastt:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SE115_ProjectLastt_jar</output-path>
+    <root id="archive" name="SE115_ProjectLastt.jar">
+      <element id="module-output" name="SE115_ProjectLastt" />
+    </root>
+  </artifact>
+</component>

@@ -176,12 +176,18 @@ public class Card {
         System.out.println();
         System.out.println(computer.handCounter);
     }*/
-    public void dealTo(Player player){
+    public void dealTo(Player player,Computer computer){
         player.hand=new Card[4];
+        computer.hand=new Card[4];
         player.handCounter=0;
+        computer.handCounter=0;
         for(int a =0 ;a< 4 ;a++){
             player.hand[player.handCounter]=deck[deckCounter-1];
             player.handCounter+=1;
+            deck[deckCounter-1]=null;
+            deckCounter-=1;
+            computer.hand[computer.handCounter]=deck[deckCounter-1];
+            computer.handCounter+=1;
             deck[deckCounter-1]=null;
             deckCounter-=1;
         }
@@ -194,16 +200,7 @@ public class Card {
             deckCounter-=1;
         }
     }
-    public void dealTo(Computer computer){
-        computer.hand=new Card[4];
-        computer.handCounter=0;
-        for(int a =0 ;a< 4 ;a++){
-            computer.hand[computer.handCounter]=deck[deckCounter-1];
-            computer.handCounter+=1;
-            deck[deckCounter-1]=null;
-            deckCounter-=1;
-        }
-    }
+    
     /*public void moveTo(Board board,Player player){
         int length = board.onBoardCounter;
         for(int a =0 ;a<length;a++){

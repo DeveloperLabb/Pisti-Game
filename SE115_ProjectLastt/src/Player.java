@@ -80,7 +80,7 @@ public class Player {
             }
             score+=1;
         }
-        score+=(pistiCounter/2)*5;
+        score+=(pistiCounter/2)*10;
         return score;
     }
 
