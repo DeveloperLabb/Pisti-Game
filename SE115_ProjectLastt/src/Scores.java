@@ -41,14 +41,23 @@ public class Scores {
                 empty.score = player.endScore;
                 scoreArr[scoreCounter]=empty;
                 scoreCounter++;
-                FileWriter fw = new FileWriter ("scores.txt",true);
+                FileWriter fw = new FileWriter ("scores.txt");
                 Formatter f = new Formatter (fw);
-                for(int a =scoreCounter-1;a>=0;a--){
-                    f.format(scoreArr[a].name+" "+scoreArr[a].score+"\n");
+                if(scoreCounter<=10){
+                    for(int a =scoreCounter-1;a>=0;a--){
+                        f.format(scoreArr[a].name+" "+scoreArr[a].score+"\n");
+                    }
+                    fw. close();
+                    f.close();
+                } else if (scoreCounter>10) {
+                    for(int a =scoreCounter-1;a>=scoreCounter-10;a--){
+                        f.format(scoreArr[a].name+" "+scoreArr[a].score+"\n");
+                    }
+                    fw. close();
+                    f.close();
                 }
-                fw. close();
-                f.close();
             }
+
 
         } catch (Exception e) {
             System.out.println("An error occurred.");
