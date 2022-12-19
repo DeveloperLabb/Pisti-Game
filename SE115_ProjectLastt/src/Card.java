@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Card {
     public String rank;
     public String suit;
-    private String[] suits = {"Clubs","Diamonds","Hearts","Spades"};
+    private String[] suits = {"♣","♦","♥","♠"};
     private String[] ranks ={"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
     private Card[] deck;
     private int deckCounter; //deck.length
@@ -200,7 +200,7 @@ public class Card {
             deckCounter-=1;
         }
     }
-    
+
     /*public void moveTo(Board board,Player player){
         int length = board.onBoardCounter;
         for(int a =0 ;a<length;a++){

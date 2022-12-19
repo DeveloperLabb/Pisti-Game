@@ -1,3 +1,4 @@
+
 public class Main {
     public static void main(String[] args) {
         game();
@@ -8,6 +9,7 @@ public class Main {
         Player player = new Player();
         Computer computer = new Computer();
         Board board = new Board();
+        Scores score = new Scores();
         game.deckMaker();
         game.deckShuffle();
         game.deckCutter();
@@ -113,7 +115,6 @@ public class Main {
         if(playerScore==computerScore){
             System.out.println("Draw!");
         }
-
+        score.highScoreList(player);
     }
-
 }
