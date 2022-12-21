@@ -33,7 +33,7 @@ public class Scores {
                     }
                 }
             }
-            if(player.endScore>scoreArr[scoreCounter-1].score){
+            if(player.endScore>scoreArr[0].score){
                 System.out.println("You get a high score please input your name :");
                 String name = scanner.nextLine();
                 Scores empty = new Scores();
@@ -41,6 +41,16 @@ public class Scores {
                 empty.score = player.endScore;
                 scoreArr[scoreCounter]=empty;
                 scoreCounter++;
+                for(int a=0;a<scoreCounter;a++){
+                    for(int b =0;b<scoreCounter-1;b++){
+                        if(scoreArr[b].score>scoreArr[b+1].score){
+                            Scores emptyy= new Scores();
+                            emptyy=scoreArr[b];
+                            scoreArr[b]=scoreArr[b+1];
+                            scoreArr[b+1]=emptyy;
+                        }
+                    }
+                }
                 FileWriter fw = new FileWriter ("scores.txt");
                 Formatter f = new Formatter (fw);
                 if(scoreCounter<=10){
