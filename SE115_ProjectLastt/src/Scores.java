@@ -23,17 +23,48 @@ public class Scores {
                 scoreCounter++;
             }
             reader.close();
-            for(int a=0;a<scoreCounter;a++){
-                for(int b =0;b<scoreCounter-1;b++){
-                    if(scoreArr[b].score>scoreArr[b+1].score){
-                        Scores emptyy= new Scores();
-                        emptyy=scoreArr[b];
-                        scoreArr[b]=scoreArr[b+1];
-                        scoreArr[b+1]=emptyy;
+            if(scoreCounter>=10){
+                for(int a=0;a<scoreCounter;a++){
+                    for(int b =0;b<scoreCounter-1;b++){
+                        if(scoreArr[b].score>scoreArr[b+1].score){
+                            Scores emptyy= new Scores();
+                            emptyy=scoreArr[b];
+                            scoreArr[b]=scoreArr[b+1];
+                            scoreArr[b+1]=emptyy;
+                        }
+                    }
+                }
+                if(player.endScore>scoreArr[0].score){
+                    System.out.println("You get a high score please input your name :");
+                    String namee = scanner.nextLine();
+                    Scores emptye = new Scores();
+                    emptye.name = namee;
+                    emptye.score = player.endScore;
+                    scoreArr[scoreCounter]=emptye;
+                    scoreCounter++;
+                    for(int a=0;a<scoreCounter;a++){
+                        for(int b =0;b<scoreCounter-1;b++){
+                            if(scoreArr[b].score>scoreArr[b+1].score){
+                                Scores emptyy= new Scores();
+                                emptyy=scoreArr[b];
+                                scoreArr[b]=scoreArr[b+1];
+                                scoreArr[b+1]=emptyy;
+                            }
+                        }
                     }
                 }
             }
-            if(player.endScore>scoreArr[0].score){
+            else if(scoreCounter>0){
+                for(int a=0;a<scoreCounter;a++){
+                    for(int b =0;b<scoreCounter-1;b++){
+                        if(scoreArr[b].score>scoreArr[b+1].score){
+                            Scores emptyy= new Scores();
+                            emptyy=scoreArr[b];
+                            scoreArr[b]=scoreArr[b+1];
+                            scoreArr[b+1]=emptyy;
+                        }
+                    }
+                }
                 System.out.println("You get a high score please input your name :");
                 String name = scanner.nextLine();
                 Scores empty = new Scores();
@@ -51,21 +82,31 @@ public class Scores {
                         }
                     }
                 }
-                FileWriter fw = new FileWriter ("scores.txt");
-                Formatter f = new Formatter (fw);
-                if(scoreCounter<=10){
-                    for(int a =scoreCounter-1;a>=0;a--){
-                        f.format(scoreArr[a].name+" "+scoreArr[a].score+"\n");
-                    }
-                    fw. close();
-                    f.close();
-                } else if (scoreCounter>10) {
-                    for(int a =scoreCounter-1;a>=scoreCounter-10;a--){
-                        f.format(scoreArr[a].name+" "+scoreArr[a].score+"\n");
-                    }
-                    fw. close();
-                    f.close();
+            }
+            if(scoreCounter==0){
+                System.out.println("You get a high score please input your name :");
+                String name = scanner.nextLine();
+                Scores empty = new Scores();
+                empty.name = name;
+                empty.score = player.endScore;
+                scoreArr[scoreCounter]=empty;
+                scoreCounter++;
+            }
+
+            FileWriter fw = new FileWriter ("scores.txt");
+            Formatter f = new Formatter (fw);
+            if(scoreCounter<=10){
+                for(int a =scoreCounter-1;a>=0;a--){
+                    f.format(scoreArr[a].name+" "+scoreArr[a].score+"\n");
                 }
+                fw. close();
+                f.close();
+            } else if (scoreCounter>10) {
+                for(int a =scoreCounter-1;a>=scoreCounter-10;a--){
+                    f.format(scoreArr[a].name+" "+scoreArr[a].score+"\n");
+                }
+                fw. close();
+                f.close();
             }
 
 
