@@ -20,6 +20,7 @@ public class Main {
         int lastplayed=0; //0 player için 1 computer için.
         while (whoplay<48){
             if(whoplay==0||whoplay==8||whoplay==16||whoplay==24||whoplay==32||whoplay==40){
+                System.out.println("---------------------------");
                 System.out.println("Round : "+round);
                 round++;
                 game.dealTo(player,computer);

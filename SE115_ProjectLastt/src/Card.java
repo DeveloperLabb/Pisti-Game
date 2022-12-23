@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Card {
     public String rank;
     public String suit;
-    private String[] suits = {"♣","♦","♥","♠"};
+    private String[] suits = {"C","D","H","S"};
     private String[] ranks ={"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
     private Card[] deck;
     private int deckCounter; //deck.length
