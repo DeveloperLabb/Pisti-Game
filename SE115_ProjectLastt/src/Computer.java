@@ -19,11 +19,6 @@ public class Computer {
         this.endScore=0;
     }
     public void writer(){
-        /*System.out.print(handCounter+" cards on the computer : ");
-        for(int a = 0;a<handCounter;a++){
-            System.out.print(hand[a].suit+"-"+hand[a].rank+" ");
-        }
-        System.out.println();*/
         System.out.println("Computer has played.");
 
     }
@@ -31,10 +26,6 @@ public class Computer {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         board.writer();
-        /*System.out.print("Type number which card do you want to play from left to right ");
-        for (int a = 1;a<handCounter+1;a++){
-            System.out.print(a+" ");
-        }*/
         int ind = random.nextInt(0, handCounter);
         if (board.onBoardCounter == 0) {
             for (int a = 0; a < handCounter; a++) {
