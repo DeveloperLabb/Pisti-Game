@@ -108,22 +108,6 @@ public class Card {
         System.out.println();
         System.out.println(deck.deckCounter);
     }
-    /*public void writer(Player player){
-        System.out.print("Cards on the player : ");
-        for(int a = 0;a<player.handCounter;a++){
-            System.out.print(player.hand[a].suit+"-"+player.hand[a].rank+" ");
-        }
-        System.out.println();
-        System.out.println(player.handCounter);
-    }
-    public void writer(Computer computer){
-        System.out.print("Cards on the computer : ");
-        for(int a = 0;a<computer.handCounter;a++){
-            System.out.print(computer.hand[a].suit+"-"+computer.hand[a].rank+" ");
-        }
-        System.out.println();
-        System.out.println(computer.handCounter);
-    }*/
     public void dealTo(Player player,Computer computer){
         player.hand=new Card[4];
         computer.hand=new Card[4];
