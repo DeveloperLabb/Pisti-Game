@@ -12,6 +12,16 @@ public class Scores {
 
     public void highScoreList(Player player){
         try {
+            try {
+                File myObj = new File("scores.txt");
+                if (myObj.createNewFile()) {
+                    System.out.println("File created: " + myObj.getName());
+                } else {
+                    System.out.println("File already exists.");
+                }
+            }catch (Exception e ){
+                e.getMessage();
+            }
             Scanner reader = new Scanner(Paths.get("scores.txt"));
             Scanner scanner = new Scanner(System.in);
             while (reader.hasNextLine()) {
@@ -93,6 +103,7 @@ public class Scores {
                 scoreCounter++;
             }
 
+
             FileWriter fw = new FileWriter ("scores.txt");
             Formatter f = new Formatter (fw);
             if(scoreCounter<=10){
@@ -116,3 +127,4 @@ public class Scores {
         }
     }
 }
+
