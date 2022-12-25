@@ -18,6 +18,7 @@ public class Player {
         this.endScore=0;
     }
     public void writer(){
+        System.out.println();
         System.out.print(handCounter+" cards on the player : ");
         for(int a = 0;a<handCounter;a++){
             System.out.print(hand[a].suit+"-"+hand[a].rank+" ");

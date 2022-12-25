@@ -56,6 +56,7 @@ public class Computer {
             }
         }
             //ind = scanner.nextInt()-1;
+            System.out.println();
             System.out.println("Computer has played " + hand[ind].getSuit() + "-" + hand[ind].getRank());
             int indBoard = board.onBoardCounter;
             board.onBoard[indBoard] = hand[ind];

@@ -86,9 +86,11 @@ public class Main {
             }
         }
         if(lastplayed==0&&board.onBoardCounter>0){      //Masada en son kalan kartları playera atar eğer masadaki kartları son toplayan playersa.
+            System.out.print("Remaining cards has been moved to player.");
             board.moveTo(player);
         }
         if(lastplayed==1&&board.onBoardCounter>0){      //Masada en son kalan kartları computera atar eğer masadaki kartları son toplayan computersa
+            System.out.print("Remaining cards has been moved to computer.");
             board.moveTo(computer);
         }
         int computerScore = computer.score();
@@ -101,12 +103,13 @@ public class Main {
             playerScore+=3;
 
         }
-        System.out.println("The game is finished.");
+        System.out.println("---------------------------");
+        System.out.println("The game has finished.");
         System.out.println("Player score is : " + playerScore);
         player.endScore=playerScore;//classa attık
         System.out.println("Computer score is : " + computerScore);
         computer.endScore=computerScore;//classa attık
-
+        System.out.println("---------------------------");
         if(playerScore>computerScore){
             System.out.println("You win!");
         }
@@ -116,6 +119,7 @@ public class Main {
         if(playerScore==computerScore){
             System.out.println("Draw!");
         }
+        System.out.println("---------------------------");
         score.highScoreList(player);
     }
 }
