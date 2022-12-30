@@ -1,4 +1,7 @@
-
+/*
+Developed by Mert Koğuş Computer Eng 20210602037
+SE115 Section 3 // Instructor: Kutluhan Erol
+ */
 public class Main {
     public static void main(String[] args) {
         game();
